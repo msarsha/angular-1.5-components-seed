@@ -16,7 +16,7 @@ module.exports = () => {
 	};
 
 	let templateCache = {
-		root: 'app', // setting root to avoid a template url with no directory
+		root: 'app', // setting root path to avoid a template url with no directory
 		standalone: true,
 		transformUrl: (url) => {
 			// replacing directory path with ./
