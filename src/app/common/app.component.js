@@ -4,14 +4,4 @@ var app = {
 
 angular
   .module('app')
-  .component('app', app)
-  .config(function($stateProvider){
-    $stateProvider
-      .state('app', {
-        url: '/app',
-        component: 'app',
-        data:{
-          requireAuth: true
-        }
-      })
-  })
+  .component('app', app);

@@ -4,4 +4,7 @@ var root = {
 
 angular
     .module('root')
-    .component('root', root);
+    .component('root', root)
+    .config(function($urlRouterProvider){
+        $urlRouterProvider.otherwise('auth/login');
+    });

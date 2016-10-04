@@ -4,11 +4,4 @@ var dashboard = {
 
 angular
   .module('dashboard')
-  .component('dashboard', dashboard)
-  .config(function($stateProvider){
-    $stateProvider
-      .state('app.dashboard', {
-        url: '/dashboard',
-        component: 'dashboard'
-      })
-  });
+  .component('dashboard', dashboard);
