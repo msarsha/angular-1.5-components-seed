@@ -45,9 +45,13 @@ gulp.task('scripts', () => {
 			`${config.paths.dist}/templates.js`,
 			...config.paths.scripts
 		])
+		.pipe(sourcemaps.init())
 		.pipe(concat('bundle.js'))
+		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(config.paths.dist))
 })
+
+
 
 gulp.task('default', () => {
 	gulp
