@@ -1,5 +1,5 @@
 function LoginController() {
-  
+  this.title = "Login";
 }
 
 angular 

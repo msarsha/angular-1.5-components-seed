@@ -1,5 +1,5 @@
 function RegisterController() {
-  
+  this.title = 'Register';
 }
 
 angular 
