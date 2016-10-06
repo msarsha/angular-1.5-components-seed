@@ -6,6 +6,7 @@ module.exports = () => {
 		dist: 'dist',
 		scripts: [`${root}/app/**/*.js`],
 		templates: [`${root}/app/**/*.html`],
+		styles: [`${root}/app/**/*.scss`],
 		vendors: [
 			`angular/angular.js`,
 			`angular-ui-router/release/angular-ui-router.js`

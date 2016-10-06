@@ -29,13 +29,13 @@ gulp.task('vendors', () => {
 		.src(config.paths.vendors.map(i => `node_modules/${i}`))
 		.pipe(concat('vendors.js'))
 		.pipe(gulp.dest(config.paths.dist));
-})
+});
 
 gulp.task('static', () => {
 	return gulp
 		.src(config.paths.static)
 		.pipe(gulp.dest(config.paths.dist));
-})
+});
 
 gulp.task('scripts', ['templates'], () => {
 	return gulp
@@ -49,19 +49,34 @@ gulp.task('scripts', ['templates'], () => {
 		.pipe(concat('bundle.js'))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest(config.paths.dist));
-})
+});
 
-gulp.task('serve', ['static', 'vendors', 'scripts'], () => {
+gulp.task('styles', () => {
+	return gulp
+		.src(config.paths.styles)
+		.pipe(sass())
+		.pipe(concat('styles.css'))
+		.pipe(gulp.dest(config.paths.dist))
+		.pipe(server.stream());
+});
+
+gulp.task('serve', ['static', 'vendors', 'styles', 'scripts'], () => {
 	server.init({
 		server: {
 			baseDir: './dist'
-		}
+		},
+		stream: true
 	})
 
 	gulp.watch([config.paths.scripts, config.paths.templates], ['watch-scripts']);
-})
+	gulp.watch([config.paths.styles], ['watch-styles']);
+});
 
 gulp.task('watch-scripts', ['scripts'], (done) => {
 	server.reload();
+	done();
+});
+
+gulp.task('watch-styles', ['styles'], (done) => {
 	done();
 });
