@@ -1,5 +1,14 @@
 @import '../variables';
 
+div{
+  padding: 10px;
+}
+
 .app{
   color: $primary-color;
+  background: green;
+}
+
+.root{
+  background: $secondary-background;
 }

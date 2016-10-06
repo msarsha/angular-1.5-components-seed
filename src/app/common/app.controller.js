@@ -1,5 +1,5 @@
 function AppController(){
-  this.title = 'App';
+  this.title = 'App Component';
 }
 
 angular

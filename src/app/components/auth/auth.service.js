@@ -1,6 +1,6 @@
 function AuthService() {
   this.isAuthenticated = function(){
-    return false;
+    return true;
   }
 };
 

@@ -70,6 +70,7 @@ gulp.task('serve', ['static', 'vendors', 'styles', 'scripts'], () => {
 
 	gulp.watch([config.paths.scripts, config.paths.templates], ['watch-scripts']);
 	gulp.watch([config.paths.styles], ['watch-styles']);
+	gulp.watch([config.paths.static], ['watch-static']);
 });
 
 gulp.task('watch-scripts', ['scripts'], (done) => {
@@ -80,3 +81,8 @@ gulp.task('watch-scripts', ['scripts'], (done) => {
 gulp.task('watch-styles', ['styles'], (done) => {
 	done();
 });
+
+gulp.task('watch-static', ['static'], (done)=>{
+	server.reload();
+	done();
+})
