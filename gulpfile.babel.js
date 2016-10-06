@@ -1,13 +1,10 @@
 import gulp from 'gulp';
 import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
-import htmlmin from 'gulp-htmlmin';
 import sass from 'gulp-sass';
 import ngAnnotate from 'gulp-ng-annotate';
 import templateCache from 'gulp-angular-templatecache';
 import server from 'browser-sync';
 import sourcemaps from 'gulp-sourcemaps';
-import clean from 'gulp-clean';
 
 import configFn from './gulpfile.config';
 
@@ -40,7 +37,7 @@ gulp.task('static', () => {
 gulp.task('scripts', ['templates'], () => {
 	return gulp
 		.src([
-			// first load the modules
+			// load modules first
 			`${config.root}/**/*.module.js`,
 			`${config.paths.dist}/templates.js`,
 			...config.paths.scripts
@@ -57,7 +54,7 @@ gulp.task('styles', () => {
 		.pipe(sass())
 		.pipe(concat('styles.css'))
 		.pipe(gulp.dest(config.paths.dist))
-		.pipe(server.stream());
+		.pipe(server.stream()); // make styles injected
 });
 
 gulp.task('serve', ['static', 'vendors', 'styles', 'scripts'], () => {
