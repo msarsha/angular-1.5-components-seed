@@ -17,14 +17,14 @@ var config = configFn();
 server.create();
 
 gulp.task('templates', () => {
-	gulp
+	return gulp
 		.src(config.paths.templates)
 		.pipe(templateCache(config.templateCache))
 		.pipe(gulp.dest(config.paths.dist));
 });
 
 gulp.task('vendors', () => {
-	gulp
+	return gulp
 		// add node_modules path prefix
 		.src(config.paths.vendors.map(i => `node_modules/${i}`))
 		.pipe(concat('vendors.js'))
@@ -32,13 +32,13 @@ gulp.task('vendors', () => {
 })
 
 gulp.task('static', () => {
-	gulp
+	return gulp
 		.src(config.paths.static)
 		.pipe(gulp.dest(config.paths.dist));
 })
 
-gulp.task('scripts', () => {
-	gulp
+gulp.task('scripts', ['templates'], () => {
+	return gulp
 		.src([
 			// first load the modules
 			`${config.root}/**/*.module.js`,
@@ -48,17 +48,20 @@ gulp.task('scripts', () => {
 		.pipe(sourcemaps.init())
 		.pipe(concat('bundle.js'))
 		.pipe(sourcemaps.write('./'))
-		.pipe(gulp.dest(config.paths.dist))
+		.pipe(gulp.dest(config.paths.dist));
 })
 
+gulp.task('serve', ['static', 'vendors', 'scripts'], () => {
+	server.init({
+		server: {
+			baseDir: './dist'
+		}
+	})
 
+	gulp.watch([config.paths.scripts, config.paths.templates], ['watch-scripts']);
+})
 
-gulp.task('default', () => {
-	gulp
-		.src([
-			...config.paths.scripts,
-			`${config.paths.dist}/templates.js`
-		])
-		.pipe(concat('bundle.js'))
-		.pipe(gulp.dest(config.paths.dist))
+gulp.task('watch-scripts', ['scripts'], (done) => {
+	server.reload();
+	done();
 });
