@@ -10,9 +10,9 @@ Seed project for Angular 1.5.
   - serving and live reloading
   - tamplate cache
 - component routing with ui-router
-- scss
+- transition hooks for handling states that require authentication (the `app` state and his child states)
 - authentication module
-  
+- global scss variables file
   
 #### How to run
 
