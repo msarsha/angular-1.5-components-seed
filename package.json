@@ -8,6 +8,7 @@
     "install": "typings install"
   },
   "author": "SarSha",
+  "repository": "https://github.com/sarsha17/angular-1.5-components-seed.git",
   "license": "ISC",
   "dependencies": {
     "angular": "^1.5.8",
