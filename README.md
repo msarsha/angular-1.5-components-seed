@@ -9,6 +9,9 @@ Seed project for Angular 1.5.
   - bundling
   - serving and live reloading
   - tamplate cache
+- component routing with ui-router
+- scss
+- authentication module
   
   
 #### How to run
