@@ -2,7 +2,23 @@
 Seed project for Angular 1.5.
 
 
-#### Project Structure:
+#### Whats inside:
+
+- Basic app structure to get you started with component architecture
+- Gulp tasks for
+  - bundling
+  - serving and live reloading
+  - tamplate cache
+  
+  
+#### How to run
+
+Clone the repo
+Run `npm install`
+Run `npm start`
+
+
+#### Directory Structure:
 
 ```
 .
