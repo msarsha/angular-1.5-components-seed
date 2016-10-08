@@ -14,7 +14,9 @@ Seed project for Angular 1.5.
 #### How to run
 
 Clone the repo
+
 Run `npm install`
+
 Run `npm start`
 
 
