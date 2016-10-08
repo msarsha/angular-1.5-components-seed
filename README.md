@@ -1,6 +1,8 @@
 # angular-1.5-components-seed
 Seed project for Angular 1.5.
 
+_Inspired by Todd Motto's Ultimate Angular courses_
+
 
 #### Whats inside:
 
